@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "itemframetweaks",
+  "version": "${version}",
+
+  "name": "Item Frame Tweaks",
+  "description": "A simple mod to rid yourself of those pesky item frame nametags and remove the invisible item frame offset.",
+  "authors": [
+    "Viotomix"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": "https://github.com/viotomix/ItemFrameTweaks"
+  },
+
+  "license": "MIT License",
+  "icon": "assets/itemframetweaks/icon.png",
+
+  "environment": "*",
+  "mixins": [
+    "itemframetweaks.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.19",
+    "fabric-api": "*",
+    "minecraft": "~1.19.4",
+    "java": ">=17"
+  }
+}
