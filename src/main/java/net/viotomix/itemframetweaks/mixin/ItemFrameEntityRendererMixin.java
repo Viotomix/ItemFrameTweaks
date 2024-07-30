@@ -19,15 +19,15 @@ public abstract class ItemFrameEntityRendererMixin<T extends ItemFrameEntity>
 		super(ctx);
 	}
 
-	@ModifyConstant(method = "render", constant = @Constant(floatValue = 0.5f), slice = @Slice(
-		from = @At(value = "INVOKE", target = "net/minecraft/entity/decoration/ItemFrameEntity.getMapId()Ljava/util/OptionalInt;"),
-		to = @At(value = "INVOKE", target = "java/util/OptionalInt.isPresent()Z")
+	@ModifyConstant(method = "render*", constant = @Constant(floatValue = 0.5f), slice = @Slice(
+		from = @At(value = "INVOKE", target = "net/minecraft/entity/decoration/ItemFrameEntity.getMapId()Lnet/minecraft/component/type/MapIdComponent;"),
+		to = @At(value = "INVOKE", target = "net/minecraft/entity/decoration/ItemFrameEntity.getRotation()I")
 	))
 	private float noInvisItemFrameOffset(float value) {
 		return 0.4375f;
 	}
 
-	@Redirect(method = "renderLabelIfPresent", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/entity/EntityRenderer;renderLabelIfPresent(Lnet/minecraft/entity/Entity;Lnet/minecraft/text/Text;Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;I)V"))
-	private void noNametagRendering(EntityRenderer entityRenderer, Entity entity, Text text, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
+	@Redirect(method = "renderLabelIfPresent*", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/entity/EntityRenderer;renderLabelIfPresent(Lnet/minecraft/entity/Entity;Lnet/minecraft/text/Text;Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;IF)V"))
+	private void noNametagRendering(EntityRenderer<T> entityRenderer, Entity entity, Text text, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, float f) {
 	}
 }
