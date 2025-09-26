@@ -17,6 +17,11 @@
   "icon": "assets/itemframetweaks/icon.png",
 
   "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.viotomix.itemframetweaks.ItemFrameTweaks"
+    ]
+  },
   "mixins": [
     "itemframetweaks.mixins.json"
   ],

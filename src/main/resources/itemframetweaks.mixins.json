@@ -3,10 +3,12 @@
   "minVersion": "0.8",
   "package": "net.viotomix.itemframetweaks.mixin",
   "compatibilityLevel": "JAVA_17",
+  "plugin": "net.viotomix.itemframetweaks.mixin.ItemFrameTweaksMixinPlugin",
   "mixins": [
   ],
   "client": [
-    "ItemFrameEntityRendererMixin"
+    "ItemFrameEntityRendererMixin",
+    "ItemFrameNametagMixin"
   ],
   "injectors": {
     "defaultRequire": 1
